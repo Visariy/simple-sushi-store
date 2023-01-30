@@ -1,0 +1,43 @@
+[{
+    "id": 1,
+    "price": 1000,
+    "title": "Филадельфия",
+    "image": 1
+
+},
+
+{
+    "id": 2,
+    "price": 1500,
+    "title": "",
+    "image": 1
+},
+
+{
+    "id": 3,
+    "price": 2000,
+    "title": 1,
+    "image": 1
+},
+
+{
+    "id": 4,
+    "price": 1450,
+    "title": 1,
+    "image": 1
+},
+
+{
+    "id": 5,
+    "price": 1399,
+    "title": 1,
+    "image": 1
+},
+
+{
+    "id": 6,
+    "price": 1200,
+    "title": 1,
+    "image": 1
+
+}]
