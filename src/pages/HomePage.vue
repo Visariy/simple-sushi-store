@@ -22,9 +22,18 @@
 
 <script setup lang="ts">
 
+import { useStore } from 'vuex';
+import { computed } from 'vue';
+
 import SliderComponent from '@/components/SliderComponent.vue';
 
 import footerComponent from '@/components/FooterComponent.vue';
+
+const store = useStore();
+
+const data = computed(() => store.getters.getData());
+
+console.log(data);
 
 </script>
 

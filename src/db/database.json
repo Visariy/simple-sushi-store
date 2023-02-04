@@ -2,42 +2,42 @@
     "id": 1,
     "price": 1000,
     "title": "Филадельфия",
-    "image": 1
+    "image": "assets/1.png"
 
 },
 
 {
     "id": 2,
     "price": 1500,
-    "title": "",
-    "image": 1
+    "title": "Угорь",
+    "image": "assets/1.png"
 },
 
 {
     "id": 3,
     "price": 2000,
-    "title": 1,
-    "image": 1
+    "title": "Маки",
+    "image": "assets/1.png"
 },
 
 {
     "id": 4,
     "price": 1450,
-    "title": 1,
-    "image": 1
+    "title": "Лосось",
+    "image": "assets/1.png"
 },
 
 {
     "id": 5,
     "price": 1399,
-    "title": 1,
-    "image": 1
+    "title": "Запеченные мидии",
+    "image": "assets/1.png"
 },
 
 {
     "id": 6,
     "price": 1200,
-    "title": 1,
-    "image": 1
+    "title": "Запеченный ласось",
+    "image": "assets/1.png"
 
 }]

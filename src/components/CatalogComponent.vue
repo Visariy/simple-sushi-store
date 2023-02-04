@@ -1,16 +1,19 @@
 <template>
+  <input v-model="searchRequest">
   <div class="catalog__container">
     <div class="catalog">
-      <div class="catalog__item">
-        <div class="sushi__photo">
-        <img class="sushi__image" src="../../public/assets/sushiPhoto.png" alt="">
-        </div>
-        <div class="sushi__title">
-          <p class="sushi_name">Суши</p>
-        </div>
-        <div class="sushi__subtitle">
-          <p class="sushi__price">1000 р.</p>
-          <button class="buy__btn">В КОРЗИНУ</button>
+      <div class="catalog__items" v-for="data in sortedArray" :key="data.id">
+        <img :src="data.image" class="sushi__photo" alt="" />
+        <div class="down__side">
+          <div class="sushi__title">
+            {{ data.title }}
+          </div>
+          <div class="sushi__price">
+            {{ data.price }} р.
+            <button class="buy__btn">
+              <span class="add__plus">+</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -19,6 +22,33 @@
 
 <script setup lang="ts">
 
+import { ref, watch, computed } from 'vue';
+
+import productData from '../db/database.json';
+
+const dataArray = ref([...productData]);
+
+const sortedArray: any = ref([...dataArray.value]);
+
+const searchRequest = ref('');
+
+const titleArray: Array<string> = [];
+
+watch(searchRequest, () => {
+  if (searchRequest.value.length > 0) {
+    sortedArray.value.length = 0;
+    dataArray.value.forEach((item) => {
+      if (item.title.startsWith(searchRequest.value)) {
+        sortedArray.value.push(item);
+      }
+    });
+  }
+  if (searchRequest.value === '') {
+    sortedArray.value.length = 0;
+    sortedArray.value.push(...dataArray.value);
+  }
+});
+
 </script>
 
 <style scoped lang="scss">
@@ -26,56 +56,72 @@
   background-color: whitesmoke;
   height: 1250px;
   margin-top: 25px;
+
   .catalog {
     display: flex;
     width: 1200px;
     max-height: 400px;
     flex-wrap: wrap;
-    .catalog__item {
+
+    .catalog__items {
       border: 3px solid lightgray;
-      margin-left: 55px;
+      margin-left: 75px;
       margin-top: 70px;
       box-shadow: 0 0 20px black;
-      width: 400px;
+      width: 300px;
       transition: border .5s ease;
       border-radius: 20px;
-      &:hover{
-        border: 3px solid gray;
+
+      &:hover {
+        border: 3px solid white;
       }
-      .sushi__title{
+
+      .down__side {
+        background-color: rgb(36, 35, 35);
+        background-size: cover;
+        height: 100px;
+        border-radius: 20px;
+      }
+
+      .sushi__title {
+        font-size: 20px;
         display: flex;
         justify-content: center;
+        color: whitesmoke;
       }
-      .sushi__subtitle{
+
+      .sushi__subtitle {
         display: flex;
         justify-content: space-between;
         margin-top: 40px;
       }
-      .sushi__photo{
+
+      .sushi__photo {
         display: flex;
         justify-content: center;
-        .sushi__image {
-          width: 300px;
-          height: 300px;
-          z-index: 1;
-          margin-left: 0;
-          background-color: whitesmoke;
-        }
+        width: 250px;
+        height: 250px;
+        z-index: 1;
+        margin-left: 10px;
+        margin-top: 10px;
+        background-color: whitesmoke;
       }
-      .sushi_name {
-        color: black;
-        font-size: 30px;
-      }
-      .sushi__price{
+
+      .sushi__price {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding-top: 25px;
         font-family: CodePro;
         font-size: 23px;
-        color: black;
+        color: whitesmoke;
         margin-top: 5px;
         margin-left: 15px;
       }
-      .buy__btn{
+
+      .buy__btn {
         font-family: CodePro;
-        width: 175px;
+        width: 50px;
         margin-bottom: 4px;
         margin-right: 5px;
         display: flex;
@@ -84,15 +130,20 @@
         align-items: center;
         background-color: whitesmoke;
         border: 1px solid darkgray;
-        box-shadow: 0  0 5px darkgray;
+        box-shadow: 0 0 5px darkgray;
         border-radius: 30px;
         cursor: pointer;
         height: 40px;
-        transition: background-color,color,box-shadow .5s ease;
-        &:hover{
-          background-color: black;
+        transition: background-color, color, box-shadow .5s ease;
+
+        &:hover {
+          background-color: darkorange;
           color: whitesmoke;
           box-shadow: 0 0 5px black;
+        }
+
+        .add__plus {
+          font-size: 35px;
         }
       }
     }

@@ -1,6 +1,6 @@
 <template>
   <div class="container__menu">
-    <SearchComponent></SearchComponent>
+    <SearchField></SearchField>
     <FilterComponent></FilterComponent>
     <CatalogComponent></CatalogComponent>
   </div>
@@ -8,11 +8,13 @@
 
 <script setup lang="ts">
 
-import FilterComponent from '@/components/seacrhField/Filter.vue';
+import FilterComponent from '@/components/seacrhField/FilterLine.vue';
 
-import SearchComponent from '@/components/seacrhField/Search.vue';
+import SearchField from '@/components/seacrhField/SearchField.vue';
 
 import CatalogComponent from '@/components/CatalogComponent.vue';
+
+const data = 'privet';
 
 </script>
 

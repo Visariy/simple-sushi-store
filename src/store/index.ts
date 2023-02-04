@@ -1,9 +1,15 @@
 import { createStore } from 'vuex';
+import productData from '@/db/database.json';
 
-export default createStore({
+const store = createStore({
   state: {
+    data: 123,
+    dataArray: [...productData],
   },
   getters: {
+    getData(state) {
+      return state.data;
+    },
   },
   mutations: {
   },
@@ -12,3 +18,5 @@ export default createStore({
   modules: {
   },
 });
+
+export default store;
