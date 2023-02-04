@@ -15,10 +15,8 @@
   </ul>
 </template>
 
-<script>
-export default {
-  name: 'productsFilter',
-};
+<script setup lang="ts">
+
 </script>
 
 <style scoped lang="scss">

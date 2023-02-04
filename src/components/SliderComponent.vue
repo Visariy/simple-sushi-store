@@ -1,7 +1,9 @@
 <template>
     <Carousel v-if="!mobile" :items-to-show="3" :wrap-around="true" :autoplay="2000">
-      <Slide v-for="slide in 10" :key="slide">
-        <div class="carousel__item">{{ slide }}</div>
+      <Slide v-for="data in productData" :key="data.id">
+        <div>
+          <img class="carousel__item" :src="data.image" alt="">
+        </div>
       </Slide>
 
       <template>
@@ -34,6 +36,10 @@ import {
 import 'vue3-carousel/dist/carousel.css';
 
 import { ref, computed } from 'vue';
+
+import productData from '../db/database.json';
+
+const dataArray = [...productData];
 
 const mobile = ref(false);
 const windowWidth = ref(0);
