@@ -22,9 +22,15 @@
 
 <script setup lang="ts">
 
+import { useStore } from '@/pinia/store';
+
 import SliderComponent from '@/components/SliderComponent.vue';
 
 import footerComponent from '@/components/FooterComponent.vue';
+
+const store = useStore();
+
+console.log(store.productData);
 
 </script>
 
