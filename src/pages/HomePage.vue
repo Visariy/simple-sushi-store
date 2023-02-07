@@ -22,8 +22,6 @@
 
 <script setup lang="ts">
 
-import { computed } from 'vue';
-
 import SliderComponent from '@/components/SliderComponent.vue';
 
 import footerComponent from '@/components/FooterComponent.vue';

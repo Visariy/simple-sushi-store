@@ -1,16 +1,10 @@
 <template>
   <div class="container__menu">
-    <SearchField></SearchField>
-    <FilterComponent></FilterComponent>
     <CatalogComponent></CatalogComponent>
   </div>
 </template>
 
 <script setup lang="ts">
-
-import FilterComponent from '@/components/seacrhField/FilterLine.vue';
-
-import SearchField from '@/components/seacrhField/SearchField.vue';
 
 import CatalogComponent from '@/components/CatalogComponent.vue';
 

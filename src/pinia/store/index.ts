@@ -7,6 +7,7 @@ export const useStore = defineStore('store', {
     count: 0,
     name: 'Oleg',
     dataArray: [productData],
+    ordersList: [productData[0]],
   }),
 })
 
