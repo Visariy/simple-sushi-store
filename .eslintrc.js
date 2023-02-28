@@ -14,8 +14,11 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    "linebreak-style": 0,
-    "arrow-body-style": 0,
+    'linebreak-style': 0,
+    'arrow-body-style': 0,
+    'vuejs-accessibility/click-events-have-key-events': 'off',
+    'allowForLoopAfterthoughts': 0,
+    'import/prefer-default-export': 'off',
   },
   overrides: [
     {

@@ -1,24 +1,23 @@
 <template>
-    <div v-if="isOpen" class="backdrop">
-        <div class="popup">
+  <transition name="popup">
+    <div v-if="isOpen" class="backdrop" @click="close">
+        <div class="popup" @click.stop>
            <div class="close-button-container">
-                <button class="close-button" @click="close">
+                <button class="close-button" @click.prevent="close">
                     <span class="close-span">X</span>
                 </button>
            </div>
-           <div class="title">
-                <h1>Корзина</h1>
-            </div>
-            <hr />
+           <slot name="title">
+            </slot>
             <slot name="body">
             </slot>
-            <hr />
             <div class="footer">
                 <slot name="actions">
                 </slot>
             </div>
         </div>
     </div>
+  </transition>
 </template>
 
 <script setup lang="ts">
@@ -39,7 +38,7 @@ function close() {
 
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .backdrop {
     position: fixed;
     top: 0;
@@ -51,7 +50,7 @@ function close() {
 
     .popup {
         max-width: 1000px;
-        max-height: 600px;
+        max-height: 100vh;
         top: 50px;
         padding: 20px;
         left: 50%;
@@ -60,7 +59,6 @@ function close() {
         z-index: 101;
         background-color: white;
         border-radius: 10px;
-
         .close-button-container{
             display: flex;
             justify-content: flex-end;
@@ -83,5 +81,34 @@ function close() {
             text-align: center;
         }
     }
+}
+.popup-enter-from,
+.popup-leave-to {
+  opacity: 0;
+}
+
+.popup-enter-active
+.popup-leave-from {
+  opacity: 0.94;
+}
+
+.popup-enter-active,
+.popup-leave-active {
+  transition: all .25s linear;
+}
+
+@media screen and (max-width: 425px) {
+  .backdrop{
+    .popup{
+      width: 410px;
+    }
+  }
+}
+@media screen and (max-width: 320px) {
+  .backdrop{
+    .popup{
+      width: 350px;
+    }
+  }
 }
 </style>

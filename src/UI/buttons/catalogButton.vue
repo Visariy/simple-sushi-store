@@ -1,5 +1,5 @@
 <template>
-  <button @click="$router.push('/')" class="main-button">Home</button>
+  <button class="menu-button" @click="$router.push({path: '/catalog'})">Catalog</button>
 </template>
 
 <script setup lang="ts">
@@ -7,7 +7,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .main-button{
+  .menu-button {
     font-family: CodePro;
     background: none;
     border: 0;

@@ -7,19 +7,32 @@
   </div>
 </template>
 
-<script lang="ts">
-import navBar from '@/components/NavbarComponent.vue';
+<script setup lang="ts">
+import navBar from '@/components/TheNavbarComponent.vue';
+import { onMounted } from 'vue';
+import { useGetApi } from '@/pinia/store/catalog/actions/getAPI';
+import { useCatalogStore } from '@/pinia/store/catalog/state/catalogStore';
+import { orderType } from '@/interfaces/orderInterface';
 
-export default {
-  components: { navBar },
-};
+const api = useGetApi();
+
+const catalogStore = useCatalogStore();
+
+onMounted(async () => {
+  await api.GET_PRODUCTS_FROM_API();
+  catalogStore.dataArray.forEach((item: orderType) => {
+    // eslint-disable-next-line no-param-reassign
+    item.quantity = 1;
+  });
+});
+
 </script>
 
-<style lang="scss" src="@/app.scss" >
+<style lang="scss">
 @font-face {
   font-family: 'CodePro';
   src: local('CodePro'),
-    url("fonts/Code_pro font/SourceCodePro-Italic-VariableFont_wght.ttf");
+    url("UI/fonts/Code_pro font/SourceCodePro-Italic-VariableFont_wght.ttf");
 }
 
 * {
