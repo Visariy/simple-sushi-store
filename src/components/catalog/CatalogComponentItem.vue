@@ -28,10 +28,6 @@ const props = defineProps({
   sortedData: Object,
 });
 
-onMounted(() => {
-  // props.sortedData!.quantity = 1;
-});
-
 function addProduct() {
   addOrder.addToOrdersList(props.sortedData);
 }

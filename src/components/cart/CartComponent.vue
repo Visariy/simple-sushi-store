@@ -90,6 +90,7 @@ function openOrdersPopup() {
     position: absolute;
     background: none;
     margin-top: 0;
+    margin-right: 10px;
     .shopping-cart {
       width: 35px;
       height: 35px;
