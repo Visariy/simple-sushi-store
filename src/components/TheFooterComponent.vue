@@ -21,11 +21,11 @@
 
 <script setup lang="ts">
 
-import facebookIcon from '@/UI/buttons/facebookIcon.vue';
+import facebookIcon from '@/UI/buttons/FacebookIcon.vue';
 
-import instagramIcon from '@/UI/buttons/instagramIcon.vue';
+import instagramIcon from '@/UI/buttons/InstagramIcon.vue';
 
-import twitterIcon from '@/UI/buttons/twitterIcon.vue';
+import twitterIcon from '@/UI/buttons/TwitterIcon.vue';
 
 </script>
 

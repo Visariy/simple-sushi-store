@@ -31,9 +31,9 @@
 
 <script setup lang="ts">
 
-import CatalogButton from '@/UI/buttons/catalogButton.vue';
+import CatalogButton from '@/UI/buttons/CatalogButton.vue';
 
-import MainButton from '@/UI/buttons/mainButton.vue';
+import MainButton from '@/UI/buttons/MainButton.vue';
 
 import { ref } from 'vue';
 
