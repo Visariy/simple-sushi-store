@@ -126,7 +126,7 @@ function openOrdersPopup() {
       padding-bottom: 10px;
       display: flex;
       justify-content: center;
-      font-family: CodePro;
+      font-family: "Source Code Pro", monospace;
     }
   }
 
@@ -136,7 +136,7 @@ function openOrdersPopup() {
 
   .actions-button {
     margin-top: 20px;
-    font-family: CodePro;
+    font-family: "Source Code Pro", monospace;
     background-color: whitesmoke;
     color: black;
     font-size: 20px;
@@ -155,7 +155,7 @@ function openOrdersPopup() {
     padding-top: 40px;
     display: flex;
     justify-content: center;
-    font-family: CodePro;
+    font-family: "Source Code Pro", monospace;
   }
 
   .after-orders-line {
@@ -166,7 +166,7 @@ function openOrdersPopup() {
       display: flex;
       justify-content: right;
       .totalPrice {
-        font-family: CodePro;
+        font-family: "Source Code Pro", monospace;
         z-index: 99;
         font-size: 40px;
       }
@@ -180,7 +180,7 @@ function openOrdersPopup() {
         padding-bottom: 10px;
         display: flex;
         justify-content: center;
-        font-family: CodePro;
+        font-family: "Source Code Pro", monospace;
       }
     }
     .actions-button{

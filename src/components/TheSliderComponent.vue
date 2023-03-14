@@ -108,7 +108,7 @@ section.carousel {
     .carousel-title{
       color: black;
       font-size: 25px;
-      font-family: CodePro;
+      font-family: "Source Code Pro", monospace;
     }
   }
 
@@ -118,14 +118,14 @@ section.carousel {
     margin: 20px;
     .carousel-price{
       font-size: 25px;
-      font-family: CodePro;
+      font-family: "Source Code Pro", monospace;
     }
     .carousel-button-сontainer{
       .carousel-button {
         font-size: 16px;
         padding: 5px;
         background: none;
-        font-family: CodePro;
+        font-family: "Source Code Pro", monospace;
         cursor: pointer;
         transition: color .25s ease;
         border-radius: 5px;

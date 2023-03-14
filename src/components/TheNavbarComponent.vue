@@ -81,7 +81,7 @@ window.addEventListener('resize', adaptiveStore.adaptive);
       border: solid 1px black;
       background: black;
       width: 100%;
-      font-family: CodePro;
+      font-family: "Source Code Pro", monospace;
     }
   }
 

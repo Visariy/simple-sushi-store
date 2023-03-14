@@ -100,7 +100,7 @@ window.addEventListener('resize', adaptiveStore.adaptive);
     width: 300px;
     padding: 5px;
     font-size: 20px;
-    font-family: CodePro;
+    font-family: "Source Code Pro", monospace;
     border-radius: 10px;
     height: 40px;
   }
@@ -111,14 +111,14 @@ window.addEventListener('resize', adaptiveStore.adaptive);
       color:whitesmoke;
       padding-right: 10px;
       font-size: 20px;
-      font-family: CodePro;
+      font-family: "Source Code Pro", monospace;
     }
     .filter-by-price-button{
       background: none;
       border: none;
       color: whitesmoke;
       font-size: 20px;
-      font-family: CodePro;
+      font-family: "Source Code Pro", monospace;
       cursor: pointer;
     }
     .filter-by-price-button-arrow{

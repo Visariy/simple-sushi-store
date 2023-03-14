@@ -29,11 +29,6 @@ onMounted(async () => {
 </script>
 
 <style lang="scss">
-@font-face {
-  font-family: 'CodePro';
-  src: local('CodePro'),
-    url("UI/fonts/Code_pro font/SourceCodePro-Italic-VariableFont_wght.ttf");
-}
 
 * {
   margin: 0;

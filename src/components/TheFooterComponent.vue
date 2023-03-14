@@ -52,7 +52,7 @@ import twitterIcon from '@/UI/buttons/TwitterIcon.vue';
   .footer-text{
     display: flex;
     justify-content: center;
-    font-family: CodePro;
+    font-family: "Source Code Pro", monospace;
     font-size: 20px;
   }
   .footer-links{

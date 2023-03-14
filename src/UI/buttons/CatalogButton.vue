@@ -8,7 +8,7 @@
 
 <style lang="scss" scoped>
   .menu-button {
-    font-family: CodePro;
+    font-family: "Source Code Pro", monospace;
     background: none;
     border: 0;
     border-radius: 15px;

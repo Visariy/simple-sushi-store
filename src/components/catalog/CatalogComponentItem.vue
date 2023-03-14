@@ -84,7 +84,7 @@ function addProduct() {
         justify-content: space-between;
         align-items: baseline;
         padding-top: 25px;
-        font-family: CodePro;
+        font-family: "Source Code Pro", monospace;
         font-size: 23px;
         color: black;
         margin-top: 5px;
@@ -92,7 +92,7 @@ function addProduct() {
     }
 
     .buy-btn {
-        font-family: CodePro;
+        font-family: "Source Code Pro", monospace;
         width: 50px;
         margin-bottom: 4px;
         margin-right: 5px;
@@ -122,7 +122,7 @@ function addProduct() {
 
 @media screen and (max-width: 320px){
   .catalog-items {
-    margin-left: 0px;
+    margin-left: 0;
   }
 }
 </style>

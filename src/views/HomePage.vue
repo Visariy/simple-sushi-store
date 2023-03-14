@@ -48,13 +48,13 @@ import footerComponent from '@/components/TheFooterComponent.vue';
 
     .title {
       color: whitesmoke;
-      font-family: CodePro;
+      font-family: "Source Code Pro", monospace;
       font-size: 60px;
     }
 
     .text {
       color: whitesmoke;
-      font-family: CodePro;
+      font-family: "Source Code Pro", monospace;
       font-size: 25px;
     }
   }
@@ -69,7 +69,7 @@ import footerComponent from '@/components/TheFooterComponent.vue';
       max-width: 1200px;
       margin-left: 20px;
       color: white;
-      font-family: CodePro;
+      font-family: "Source Code Pro", monospace;
     }
   }
 }

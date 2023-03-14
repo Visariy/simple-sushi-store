@@ -90,7 +90,7 @@ function incrementQuntity() {
   width: 600px;
 
   .order-title {
-    font-family: CodePro;
+    font-family: "Source Code Pro", monospace;
     font-size: 23px;
     margin-top: 40px;
     margin-right: 10px;
@@ -103,7 +103,7 @@ function incrementQuntity() {
   }
 
   .order-price {
-    font-family: CodePro;
+    font-family: "Source Code Pro", monospace;
     margin-top: 40px;
     font-size: 25px;
   }

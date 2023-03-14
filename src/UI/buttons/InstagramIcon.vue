@@ -6,7 +6,9 @@
 
 <script setup lang="ts">
 
-import openURL from '@/function';
+const openURL = (URL: string) => {
+  window.open(URL, '_blank');
+};
 
 </script>
 
