@@ -60,7 +60,7 @@
 
 import CatalogComponentItem from '@/components/catalog/CatalogComponentItem.vue';
 
-import { ref, watch} from 'vue';
+import { ref, watch } from 'vue';
 
 import { useCatalogStore } from '@/pinia/store/catalog/state/catalogStore';
 
@@ -79,10 +79,10 @@ const filterByPrice = useFilterByPrice();
 const searchRequest = ref('');
 
 watch(() => catalogStore.dataArray, (value) => {
-  if(value) {
+  if (value) {
     catalogStore.sortedArray.push(...catalogStore.dataArray);
   }
-})
+});
 
 const items = [
   { id: 1, title: 'By Price: Highest' },

@@ -58,6 +58,7 @@ let totalQuantity;
 // eslint-disable-next-line
 const quantityReducer = (accumular: number, currentValue: orderType) => accumular + currentValue.quantity;
 
+// eslint-disable-next-line
 totalQuantity = computed(() => cartStore.ordersList.reduce(quantityReducer, 0));
 
 watch(group, () => {

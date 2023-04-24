@@ -31,7 +31,7 @@ onMounted(async () => {
     // eslint-disable-next-line no-param-reassign
     item.quantity = 1;
   });
-  localStorage.setItem('data', JSON.stringify(catalogStore.dataArray))
+  localStorage.setItem('data', JSON.stringify(catalogStore.dataArray));
 });
 
 </script>

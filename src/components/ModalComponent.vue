@@ -22,15 +22,11 @@
 
 <script setup lang="ts">
 
-import { defineProps, defineEmits } from 'vue';
+import { defineEmits } from 'vue';
 
 import { usePublicStore } from '@/pinia/store/publicStore';
 
 const publicStore = usePublicStore();
-
-const props = defineProps({
-  isOpen: Boolean,
-});
 
 const emits = defineEmits({
   close: null,
