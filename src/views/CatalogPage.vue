@@ -21,19 +21,16 @@ import { useAdaptiveStore } from '@/pinia/store/adaptive/adaptiveStore';
   @media screen and (max-width: 768px){
     .container-menu {
       max-width: 768px;
-      padding-left: 40px;
     }
   }
   @media screen and (max-width: 425px){
     .container-menu {
       max-width: 425px;
-      padding-left: 30px;
     }
   }
   @media screen and (max-width: 375px){
     .container-menu {
       max-width: 375px;
-      padding-left: 5px;
     }
   }
   @media screen and (max-width: 320px){

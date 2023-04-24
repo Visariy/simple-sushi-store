@@ -1,15 +1,49 @@
 <template>
   <div class="catalog-filters-container">
-    <input class="filter-by-name" placeholder="Search..." v-model="searchRequest">
-    <div class="filter-by-price-container">
-      <span class="filter-tag">Filter:</span>
-      <button
-        class="filter-by-price-button"
-        @click="priceFilter(); changeFilterStatus();"
-        >By price</button>
-      <svg v-if="!filterStatus" style="transform: rotate(180deg); fill: red;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="filter-by-price-button-arrow"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M182.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L128 109.3V480c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128z"/></svg>
-      <svg v-else style="fill: green;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="filter-by-price-button-arrow"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M182.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L128 109.3V480c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128z"/></svg>
-    </div>
+    <v-card
+      color="grey"
+      max-width="400"
+      min-width="200"
+    >
+      <div class="filter-input-container">
+        <v-card-text>
+          <v-text-field single-line
+                        clearable
+                        append-inner-icon="mdi-magnify"
+                        variant="solo"
+                        density="compact"
+                        class="filter-by-name"
+                        label="Search"
+                        v-model="searchRequest" />
+        </v-card-text>
+      </div>
+      <div class="filter-list-container">
+        <v-menu>
+          <template v-slot:activator="{ props }">
+            <v-btn
+              color="black"
+              v-bind="props"
+            >
+              <span class="filter-button-text">Filters</span>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="(item) in items"
+              :key="item.id"
+              :value="item"
+            >
+              <v-list-item-title @click="priceFilter(item.id)">
+                <span
+                  style="font-family: 'Source Code Pro', monospace">
+                  {{ item.title }}
+                </span>
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
+    </v-card>
   </div>
   <div class="catalog-container">
     <div class="catalog">
@@ -54,18 +88,22 @@ onMounted(() => {
   }, 50);
 });
 
+const items = [
+  { id: 1, title: 'By Price: Highest' },
+  { id: 2, title: 'By Price: Lowest' },
+];
+
 function changeFilterStatus() {
   // eslint-disable-next-line no-unused-expressions
   filterStatus.value ? filterStatus.value = false : filterStatus.value = true;
 }
 
-function priceFilter() {
-  if (filterStatus.value) {
+function priceFilter(id: number) {
+  if (id === 2) {
     filterByPrice.filterArrayLowest(sortedArray.value);
   } else {
     filterByPrice.filterArrayHighest(sortedArray.value);
   }
-  console.log(filterStatus);
 }
 
 watch(searchRequest, () => {
@@ -95,7 +133,7 @@ window.addEventListener('resize', adaptiveStore.adaptive);
   padding-left: 100px;
   padding-right: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   .filter-by-name {
     width: 300px;
     padding: 5px;
@@ -104,40 +142,22 @@ window.addEventListener('resize', adaptiveStore.adaptive);
     border-radius: 10px;
     height: 40px;
   }
-  .filter-by-price-container{
-    padding-top: 10px;
-    padding-left: 50px;
-    .filter-tag{
-      color:whitesmoke;
-      padding-right: 10px;
-      font-size: 20px;
+  .filter-list-container{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    .filter-button-text{
       font-family: "Source Code Pro", monospace;
-    }
-    .filter-by-price-button{
-      background: none;
-      border: none;
-      color: whitesmoke;
-      font-size: 20px;
-      font-family: "Source Code Pro", monospace;
-      cursor: pointer;
-    }
-    .filter-by-price-button-arrow{
-      margin-left: 10px;
-      height: 20px;
-      fill: green;
-      transition: fill .5s linear;
     }
   }
 }
 
 .catalog-container {
-  height: 100%;
-  margin-top: 10px;
   .catalog {
     display: flex;
-    justify-items: center;
+    justify-content: center;
     max-width: 100%;
-    max-height: 400px;
+    margin-bottom: 75px;
     flex-wrap: wrap;
   }
 }
@@ -147,7 +167,7 @@ window.addEventListener('resize', adaptiveStore.adaptive);
     .filter-by-name {
       width: 100px;
       margin-top: 10px;
-      height: 40px;
+      height: 20px;
     }
 
     .filter-by-price-container {

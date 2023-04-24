@@ -14,9 +14,9 @@
             {{ data.price + "$" }}
           </div>
           <div class="carousel-button-сontainer">
-            <button class="carousel-button" @click="addOrder.addToOrdersList(data);">
+            <v-btn class="carousel-button" @click="addOrder.addToOrdersList(data);">
               TO CART
-            </button>
+            </v-btn>
           </div>
         </div>
       </div>
@@ -47,6 +47,7 @@ import { useCatalogStore } from '@/pinia/store/catalog/state/catalogStore';
 import { useAddOrder } from '@/pinia/store/catalog/actions/addToOrdersList';
 
 import { useAdaptiveStore } from '@/pinia/store/adaptive/adaptiveStore';
+
 import { catalogStoreType } from '@/interfaces/catalogStoreInterface';
 
 const catalogStore: catalogStoreType = useCatalogStore();
@@ -61,8 +62,6 @@ const itemsToShow = computed(() => {
   }
   return 3;
 });
-
-window.addEventListener('resize', adaptiveStore.adaptive);
 
 </script>
 
@@ -97,9 +96,10 @@ section.carousel {
 .carousel-product-info-container {
   background-color: whitesmoke;
   border-radius: 20px;
+  margin-bottom: 50px;
   .carousel-image {
-    width: 250px;
-    height: 250px;
+    width: 225px;
+    height: 225px;
   }
 
   .carousel-title-container {

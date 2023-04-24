@@ -6,9 +6,7 @@
 
 <script setup lang="ts">
 
-const openURL = (URL: string) => {
-  window.open(URL, '_blank');
-};
+
 
 </script>
 

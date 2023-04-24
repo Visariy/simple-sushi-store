@@ -1,22 +1,29 @@
 <template>
-  <div id="app">
-    <div class="routing">
-      <nav-bar class="navbar"></nav-bar>
-    </div>
-    <router-view></router-view>
-  </div>
+    <v-app>
+      <div id="app">
+        <the-navbar-component-second />
+        <router-view></router-view>
+        <the-footer-component-second />
+      </div>
+    </v-app>
 </template>
 
 <script setup lang="ts">
-import navBar from '@/components/TheNavbarComponent.vue';
+import TheNavbarComponentSecond from '@/components/TheNavbarComponentSecond.vue';
+import TheFooterComponentSecond from '@/components/TheFooterComponentSecond.vue';
 import { onMounted } from 'vue';
 import { useGetApi } from '@/pinia/store/catalog/actions/getAPI';
 import { useCatalogStore } from '@/pinia/store/catalog/state/catalogStore';
 import { orderType } from '@/interfaces/orderInterface';
+import { useAdaptiveStore } from '@/pinia/store/adaptive/adaptiveStore';
 
 const api = useGetApi();
 
+const adaptiveStore = useAdaptiveStore();
+
 const catalogStore = useCatalogStore();
+
+window.addEventListener('resize', adaptiveStore.adaptive);
 
 onMounted(async () => {
   await api.GET_PRODUCTS_FROM_API();
@@ -34,6 +41,10 @@ onMounted(async () => {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  overflow-y: auto;
 }
 
 #app {

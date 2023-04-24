@@ -1,4 +1,5 @@
 <template>
+  <div class="catalog-items-container">
     <div class="catalog-items">
         <img :src="sortedData?.image" class="sushi-photo" alt="" />
         <div class="down-side">
@@ -14,6 +15,7 @@
             </div>
         </div>
     </div>
+  </div>
 </template>
 
 <script setup lang=ts>
@@ -34,95 +36,101 @@ function addProduct() {
 </script>
 
 <style lang="scss" scoped>
-.catalog-items {
+.catalog-items-container {
+  padding-top: 60px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+  .catalog-items {
     border: 3px solid lightgray;
     background-color: whitesmoke;
-    margin-left: 30px;
-    margin-top: 70px;
     box-shadow: 0 0 20px black;
     width: 300px;
     transition: border .5s ease;
     border-radius: 20px;
 
     &:hover {
-        border: 3px solid white;
+      border: 3px solid white;
     }
 
     .down-side {
-        background-size: cover;
-        background-color: whitesmoke;
-        height: 100px;
-        border-radius: 20px;
+      background-size: cover;
+      background-color: whitesmoke;
+      height: 100px;
+      border-radius: 20px;
     }
 
     .sushi-title {
-        font-size: 20px;
-        display: flex;
-        justify-content: center;
-        color: black;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      color: black;
     }
 
     .sushi-subtitle {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
     }
 
     .sushi-photo {
-        display: flex;
-        justify-content: center;
-        margin-left: 20px;
-        margin-top: 10px;
-        width: 250px;
-        height: 250px;
-        z-index: 1;
-        background-color: whitesmoke;
+      display: flex;
+      justify-content: center;
+      margin-left: 20px;
+      margin-top: 10px;
+      width: 250px;
+      height: 250px;
+      z-index: 1;
+      background-color: whitesmoke;
     }
 
     .sushi-price {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding-top: 25px;
-        font-family: "Source Code Pro", monospace;
-        font-size: 23px;
-        color: black;
-        margin-top: 5px;
-        margin-left: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 25px;
+      font-family: "Source Code Pro", monospace;
+      font-size: 23px;
+      color: black;
+      margin-top: 5px;
+      margin-left: 15px;
     }
 
     .buy-btn {
-        font-family: "Source Code Pro", monospace;
-        width: 50px;
-        margin-bottom: 4px;
-        margin-right: 5px;
-        display: flex;
-        justify-content: center;
-        font-size: 17px;
-        align-items: center;
-        background-color: whitesmoke;
-        border: 1px solid darkgray;
-        box-shadow: 0 0 5px darkgray;
-        border-radius: 30px;
-        cursor: pointer;
-        height: 40px;
-        transition: background-color, color, box-shadow .5s ease;
+      font-family: "Source Code Pro", monospace;
+      width: 50px;
+      margin-bottom: 4px;
+      margin-right: 5px;
+      display: flex;
+      justify-content: center;
+      font-size: 17px;
+      align-items: center;
+      background-color: whitesmoke;
+      border: 1px solid darkgray;
+      box-shadow: 0 0 5px darkgray;
+      border-radius: 30px;
+      cursor: pointer;
+      height: 40px;
+      transition: background-color, color, box-shadow .5s ease;
 
-        &:hover {
-            background-color: darkorange;
-            color: whitesmoke;
-            box-shadow: 0 0 5px black;
-        }
+      &:hover {
+        background-color: darkorange;
+        color: whitesmoke;
+        box-shadow: 0 0 5px black;
+      }
 
-        .add-plus {
-            font-size: 35px;
-        }
+      .add-plus {
+        font-size: 35px;
+      }
     }
+  }
 }
 
-@media screen and (max-width: 320px){
-  .catalog-items {
-    margin-left: 0;
+@media screen and (max-width: 320px) {
+  .catalog-items-container {
+    .catalog-items {
+      margin-left: 0;
+    }
   }
 }
 </style>

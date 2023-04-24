@@ -1,13 +1,6 @@
 <template>
-  <button class="cart-btn" @click="openOrdersPopup">
-    <svg class="shopping-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z"/></svg>
-  </button>
-  <div class="count-circle" v-if="cartStore.ordersList.length">
-    <span class="orders-length-count">{{ totalQuantity }}</span>
-  </div>
   <modal-component
-    :is-open="showOrder"
-    @close="showOrder = false"
+    @close="publicStore.showOrder = false"
     >
     <template #title>
       <div class="title-container">
@@ -23,7 +16,8 @@
                    @maxDicrement ="data.quantity = 1"
                    @increment = "data.quantity++"
                    @maxIncrement = "data.quantity = 9"
-                   v-for="data in cartStore.ordersList" :key="data.id">
+                   v-for="data in cartStore.ordersList" :key="data.id"
+      >
       </cart-component-item>
       <span class="cart-empty" v-if="cartStore.ordersList.length === 0">Cart empty</span>
       <hr class="after-orders-line" />
@@ -35,11 +29,14 @@
       </div>
     </template>
     <template #actions>
-      <button
+      <v-btn
         v-show="cartStore.ordersList.length > 0"
-        class="actions-button">
-        Confirm order
-      </button>
+        class="bg-black"
+        prepend-icon="mdi-check-bold"
+        rounded="rounded"
+      >
+        <span style="font-family: 'Source Code Pro', monospace">Confirm order</span>
+      </v-btn>
     </template>
   </modal-component>
 </template>
@@ -54,33 +51,29 @@ import { orderType } from '@/interfaces/orderInterface';
 
 import { useCartStore } from '@/pinia/store/cart/state/cartStore';
 
+import { usePublicStore } from '@/pinia/store/publicStore';
+
+import { useAdaptiveStore } from '@/pinia/store/adaptive/adaptiveStore';
+
 import ModalComponent from '@/components/ModalComponent.vue';
 
 import { cartStoreType } from '@/interfaces/cartStoreInterface';
-
-const showOrder = ref(false);
 
 const cartStore: cartStoreType = useCartStore();
 
 let totalPrice = ref(0);
 
-let totalQuantity = ref(0);
+const adaptiveStore = useAdaptiveStore();
+
+const publicStore = usePublicStore();
+
+const totalQuantity = ref(0);
 
 // eslint-disable-next-line
 const priceReducer = (accumulator: number, currentValue: orderType) => accumulator + currentValue.price * currentValue.quantity;
 
 // eslint-disable-next-line
-const quantityReducer = (accumular: number, currentValue: orderType) => accumular + currentValue.quantity;
-
-// eslint-disable-next-line
 totalPrice = computed(() => cartStore.ordersList.reduce(priceReducer, 0))
-
-totalQuantity = computed(() => cartStore.ordersList.reduce(quantityReducer, 0));
-
-function openOrdersPopup() {
-  // eslint-disable-next-line
-  return showOrder.value === false ? showOrder.value = true : showOrder.value = false;
-}
 
 </script>
 
@@ -199,7 +192,8 @@ function openOrdersPopup() {
     }
     .totalPrice-container{
       .totalPrice{
-        font-size: 30px;
+        padding: 20px 0;
+        font-size: 25px;
       }
     }
   }

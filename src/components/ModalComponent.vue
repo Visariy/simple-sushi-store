@@ -1,6 +1,6 @@
 <template>
   <transition name="popup">
-    <div v-if="isOpen" class="backdrop" @click="close">
+    <div v-if="publicStore.showOrder" class="backdrop" @click="close">
         <div class="popup" @click.stop>
            <div class="close-button-container">
                 <button class="close-button" @click.prevent="close">
@@ -24,6 +24,10 @@
 
 import { defineProps, defineEmits } from 'vue';
 
+import { usePublicStore } from '@/pinia/store/publicStore';
+
+const publicStore = usePublicStore();
+
 const props = defineProps({
   isOpen: Boolean,
 });
@@ -40,6 +44,7 @@ function close() {
 
 <style lang="scss" scoped>
 .backdrop {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -50,7 +55,8 @@ function close() {
 
     .popup {
         max-width: 1000px;
-        max-height: 100vh;
+        max-height: 50vh;
+        margin-top: 200px;
         top: 50px;
         padding: 20px;
         left: 50%;
@@ -58,6 +64,7 @@ function close() {
         position: fixed;
         z-index: 101;
         background-color: white;
+        overflow-y: auto;
         border-radius: 10px;
         .close-button-container{
             display: flex;
@@ -100,14 +107,21 @@ function close() {
 @media screen and (max-width: 425px) {
   .backdrop{
     .popup{
-      width: 410px;
+      width: 425px;
+    }
+  }
+}
+@media screen and (max-width: 375px) {
+  .backdrop{
+    .popup{
+      width: 375px;
     }
   }
 }
 @media screen and (max-width: 320px) {
   .backdrop{
     .popup{
-      width: 350px;
+      width: 320px;
     }
   }
 }

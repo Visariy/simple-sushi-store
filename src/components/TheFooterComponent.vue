@@ -46,7 +46,7 @@ import twitterIcon from '@/UI/buttons/TwitterIcon.vue';
     height: 1px;
     width: 100%;
     background-color: whitesmoke;
-    margin-top: 200px;
+    margin-top: 100px;
     margin-bottom: 10px;
   }
   .footer-text{

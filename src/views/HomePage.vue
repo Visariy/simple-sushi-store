@@ -16,15 +16,11 @@
     <SliderComponent>
     </SliderComponent>
   </div>
-  <footerComponent>
-  </footerComponent>
 </template>
 
 <script setup lang="ts">
 
 import SliderComponent from '@/components/TheSliderComponent.vue';
-
-import footerComponent from '@/components/TheFooterComponent.vue';
 
 </script>
 

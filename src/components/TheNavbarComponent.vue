@@ -1,31 +1,22 @@
 <template>
   <div class="navigation">
     <div v-show="adaptiveStore.mobile === false" class="navigation-btn">
-      <div class="first-btn">
-        <main-button class="main-btn"></main-button>
-        <catalog-button class="menu-btn"></catalog-button>
+      <div class="navigation-pages-button-container">
+        <v-btn @click="$router.push('/')"
+                 class="navigation-button"
+                 variant="tonal">
+            <span class="button-text">Home</span>
+        </v-btn>
+        <router-link to="/catalog">
+          <v-btn class="navigation-button" variant="text">
+            <span class="button-text">Catalog</span>
+          </v-btn>
+        </router-link>
       </div>
-      <div class="second-btn">
-        <cart-component></cart-component>
-      </div>
-  </div>
-    <div class="mobile-nav-container">
-      <button @click="toggleMobileNav" class="mobile-nav-button">
-        <svg v-show="adaptiveStore.mobile === true" :class="{ 'nav-mob-active': mobileNav }" class="nav-mob" xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"><!-- eslint-disable-next-line -->
-          <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
-        </svg>
-      </button>
-      <div v-show="adaptiveStore.mobile === true" class="second-btn">
+      <div class="navigation-cart-button-container">
         <cart-component></cart-component>
       </div>
     </div>
-    <transition name="fade">
-      <ul v-show="mobileNav" class="dropdown-nav">
-        <li><router-link class="link" to="/">Home</router-link></li>
-        <li><router-link class="link" to="/catalog">Catalog</router-link></li>
-      </ul>
-    </transition>
   </div>
 </template>
 
@@ -59,6 +50,7 @@ window.addEventListener('resize', adaptiveStore.adaptive);
 
 <style lang="scss" scoped>
 .navigation {
+
   .dropdown-nav {
     position: absolute;
     background-color: whitesmoke;
@@ -133,6 +125,17 @@ window.addEventListener('resize', adaptiveStore.adaptive);
     display: flex;
     justify-content: space-around;
     width: 100%;
+
+    .navigation-pages-button-container {
+      justify-content: space-around;
+
+      .button-text {
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+        font-family: "Source Code Pro", monospace;
+      }
+    }
 
     .second-btn {
       margin-top: 13px;
