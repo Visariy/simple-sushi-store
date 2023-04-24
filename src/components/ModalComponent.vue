@@ -94,7 +94,7 @@ function close() {
   opacity: 0;
 }
 
-.popup-enter-active
+.popup-enter-active,
 .popup-leave-from {
   opacity: 0.94;
 }

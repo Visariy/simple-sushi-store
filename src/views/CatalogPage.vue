@@ -8,8 +8,6 @@
 
 import CatalogComponent from '@/components/catalog/CatalogComponent.vue';
 
-import { useAdaptiveStore } from '@/pinia/store/adaptive/adaptiveStore';
-
 </script>
 
 <style lang="scss" scoped>

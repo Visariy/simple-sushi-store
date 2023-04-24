@@ -4,14 +4,13 @@
         <img :src="sortedData?.image" class="sushi-photo" alt="" />
         <div class="down-side">
             <div class="sushi-title">
-                {{ sortedData?.title }}
+              <span style="font-family: 'Source Code Pro', monospace">{{ sortedData?.title }}</span>
             </div>
             <div class="sushi-price">
                 {{ sortedData?.price + "$" }}
-                <button class="buy-btn"
-                        @click="addProduct">
-                    <span class="add-plus">+</span>
-                </button>
+                <v-btn color='black' @click="addProduct">
+                  <span style="font-family: 'Source Code Pro', monospace">TO CART</span>
+                </v-btn>
             </div>
         </div>
     </div>
@@ -20,7 +19,7 @@
 
 <script setup lang=ts>
 
-import { defineProps, onMounted } from 'vue';
+import { defineProps } from 'vue';
 
 import { useAddOrder } from '@/pinia/store/catalog/actions/addToOrdersList';
 
@@ -86,7 +85,7 @@ function addProduct() {
 
     .sushi-price {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: baseline;
       padding-top: 25px;
       font-family: "Source Code Pro", monospace;
@@ -96,28 +95,9 @@ function addProduct() {
       margin-left: 15px;
     }
 
-    .buy-btn {
-      font-family: "Source Code Pro", monospace;
-      width: 50px;
-      margin-bottom: 4px;
-      margin-right: 5px;
-      display: flex;
-      justify-content: center;
-      font-size: 17px;
-      align-items: center;
-      background-color: whitesmoke;
-      border: 1px solid darkgray;
-      box-shadow: 0 0 5px darkgray;
-      border-radius: 30px;
-      cursor: pointer;
-      height: 40px;
-      transition: background-color, color, box-shadow .5s ease;
-
-      &:hover {
-        background-color: darkorange;
-        color: whitesmoke;
-        box-shadow: 0 0 5px black;
-      }
+    .buy-button {
+      font-size: 16px;
+      padding: 5px;
 
       .add-plus {
         font-size: 35px;

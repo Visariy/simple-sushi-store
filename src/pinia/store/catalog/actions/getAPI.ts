@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useCatalogStore } from '@/pinia/store/catalog/state/catalogStore';
 import { catalogStoreType } from '@/interfaces/catalogStoreInterface';
 
-const url = 'http://localhost:3000/products';
+const url = 'https://my-json-server.typicode.com/visariy/json-server/products';
 
 export const useGetApi = defineStore('api', () => {
   const catalogStore: catalogStoreType = useCatalogStore();

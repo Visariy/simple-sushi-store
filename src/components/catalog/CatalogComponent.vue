@@ -48,7 +48,7 @@
   <div class="catalog-container">
     <div class="catalog">
       <catalog-component-item
-      v-for="data in sortedArray" :key="data.id"
+      v-for="data in catalogStore.sortedArray" :key="data.id"
       :sorted-data="data"
       >
       </catalog-component-item>
@@ -60,7 +60,7 @@
 
 import CatalogComponentItem from '@/components/catalog/CatalogComponentItem.vue';
 
-import { ref, watch, onMounted } from 'vue';
+import { ref, watch} from 'vue';
 
 import { useCatalogStore } from '@/pinia/store/catalog/state/catalogStore';
 
@@ -76,50 +76,41 @@ const adaptiveStore = useAdaptiveStore();
 
 const filterByPrice = useFilterByPrice();
 
-const filterStatus = ref(false);
-
 const searchRequest = ref('');
 
-const sortedArray: any = ref([]);
-
-onMounted(() => {
-  setTimeout(() => {
-    sortedArray.value.push(...catalogStore.dataArray);
-  }, 50);
-});
+watch(() => catalogStore.dataArray, (value) => {
+  if(value) {
+    catalogStore.sortedArray.push(...catalogStore.dataArray);
+  }
+})
 
 const items = [
   { id: 1, title: 'By Price: Highest' },
   { id: 2, title: 'By Price: Lowest' },
 ];
 
-function changeFilterStatus() {
-  // eslint-disable-next-line no-unused-expressions
-  filterStatus.value ? filterStatus.value = false : filterStatus.value = true;
-}
-
 function priceFilter(id: number) {
   if (id === 2) {
-    filterByPrice.filterArrayLowest(sortedArray.value);
+    filterByPrice.filterArrayLowest(catalogStore.sortedArray);
   } else {
-    filterByPrice.filterArrayHighest(sortedArray.value);
+    filterByPrice.filterArrayHighest(catalogStore.sortedArray);
   }
 }
 
 watch(searchRequest, () => {
   const lowerCaseSearchRequest = ref(searchRequest.value.toLowerCase());
   if (lowerCaseSearchRequest.value.length > 0) {
-    sortedArray.value.length = 0;
+    catalogStore.sortedArray.length = 0;
     catalogStore.dataArray.forEach((item: any) => {
       const itemTitleLowerCase = item.title.toLowerCase();
       if (itemTitleLowerCase.startsWith(lowerCaseSearchRequest.value)) {
-        sortedArray.value.push(item);
+        catalogStore.sortedArray.push(item);
       }
     });
   }
   if (lowerCaseSearchRequest.value === '') {
-    sortedArray.value.length = 0;
-    sortedArray.value.push(...catalogStore.dataArray);
+    catalogStore.sortedArray.length = 0;
+    catalogStore.sortedArray.push(...catalogStore.dataArray);
   }
 });
 

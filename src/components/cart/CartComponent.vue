@@ -45,7 +45,7 @@
 
 import CartComponentItem from '@/components/cart/CartComponentItem.vue';
 
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 
 import { orderType } from '@/interfaces/orderInterface';
 
@@ -53,21 +53,15 @@ import { useCartStore } from '@/pinia/store/cart/state/cartStore';
 
 import { usePublicStore } from '@/pinia/store/publicStore';
 
-import { useAdaptiveStore } from '@/pinia/store/adaptive/adaptiveStore';
-
 import ModalComponent from '@/components/ModalComponent.vue';
 
 import { cartStoreType } from '@/interfaces/cartStoreInterface';
 
 const cartStore: cartStoreType = useCartStore();
 
-let totalPrice = ref(0);
-
-const adaptiveStore = useAdaptiveStore();
+let totalPrice;
 
 const publicStore = usePublicStore();
-
-const totalQuantity = ref(0);
 
 // eslint-disable-next-line
 const priceReducer = (accumulator: number, currentValue: orderType) => accumulator + currentValue.price * currentValue.quantity;
