@@ -78,12 +78,6 @@ const filterByPrice = useFilterByPrice();
 
 const searchRequest = ref('');
 
-watch(() => catalogStore.dataArray, (value) => {
-  if (value) {
-    catalogStore.sortedArray.push(...catalogStore.dataArray);
-  }
-});
-
 const items = [
   { id: 1, title: 'By Price: Highest' },
   { id: 2, title: 'By Price: Lowest' },

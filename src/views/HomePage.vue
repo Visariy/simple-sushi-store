@@ -32,7 +32,6 @@ import SliderComponent from '@/components/TheSliderComponent.vue';
     align-items: flex-end;
     margin: 0 auto;
     max-width: 1000px;
-    //max-height: 300px;
     padding-top: 100px;
     padding-left: 30px;
     padding-right: -30px;

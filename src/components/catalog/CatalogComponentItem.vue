@@ -36,10 +36,7 @@ function addProduct() {
 
 <style lang="scss" scoped>
 .catalog-items-container {
-  padding-top: 60px;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 20px;
+  padding: 60px 10px 20px 10px;
   .catalog-items {
     border: 3px solid lightgray;
     background-color: whitesmoke;

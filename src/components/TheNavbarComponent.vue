@@ -1,6 +1,7 @@
 <template>
     <v-app-bar density="compact" style="background-color: black">
         <v-app-bar-nav-icon
+                            rounded="0"
                             style="color: whitesmoke"
                             @click.stop="drawer = !drawer">
         </v-app-bar-nav-icon>
@@ -56,7 +57,7 @@ const cartStore = useCartStore();
 let totalQuantity;
 
 // eslint-disable-next-line
-const quantityReducer = (accumular: number, currentValue: orderType) => accumular + currentValue.quantity;
+const quantityReducer = (accumulator: number, currentValue: orderType) => accumulator + currentValue.quantity;
 
 // eslint-disable-next-line
 totalQuantity = computed(() => cartStore.ordersList.reduce(quantityReducer, 0));
@@ -68,10 +69,5 @@ watch(group, () => {
 </script>
 
 <style lang="scss" scoped>
-.navigation-container{
-  display: flex;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+
 </style>

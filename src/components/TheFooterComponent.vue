@@ -32,29 +32,5 @@ const icons = [
 </script>
 
 <style lang="scss" scoped>
-//.footer-container {
-//  width: 100%;
-//  display: flex;
-//  flex-direction: column;
-//  .footer-text {
-//    background-color: teal;
-//    display: flex;
-//    width: 100px;
-//    align-items: center;
-//    padding-left: 4px;
-//    padding-right: 4px;
-//  }
-//
-//  .footer-title {
-//    padding: 4px 2px;
-//    background-color: black;
-//    text-align: center;
-//    width: 100px;
-//  }
-//
-//  .footer-buttons {
-//    margin-left: 4px;
-//    margin-right: 4px;
-//  }
-//}
+
 </style>

@@ -13,7 +13,7 @@
           <div class="carousel-price">
             {{ data.price + "$" }}
           </div>
-          <div class="carousel-button-сontainer">
+          <div class="carousel-button-container">
             <v-btn class="carousel-button" @click="addOrder.addToOrdersList(data);">
               TO CART
             </v-btn>
@@ -120,7 +120,7 @@ section.carousel {
       font-size: 25px;
       font-family: "Source Code Pro", monospace;
     }
-    .carousel-button-сontainer{
+    .carousel-button-container{
       .carousel-button {
         font-size: 16px;
         padding: 5px;

@@ -41,6 +41,7 @@ function close() {
 <style lang="scss" scoped>
 .backdrop {
     display: flex;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -52,12 +53,8 @@ function close() {
     .popup {
         max-width: 1000px;
         max-height: 50vh;
-        margin-top: 200px;
-        top: 50px;
+        margin: 0 auto;
         padding: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        position: fixed;
         z-index: 101;
         background-color: white;
         overflow-y: auto;

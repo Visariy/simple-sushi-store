@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import TheNavbarComponentSecond from '@/components/TheNavbarComponent.vue';
 import TheFooterComponentSecond from '@/components/TheFooterComponent.vue';
-import { onMounted } from 'vue';
+import { onMounted, watch } from 'vue';
 import { useGetApi } from '@/pinia/store/catalog/actions/getAPI';
 import { useCatalogStore } from '@/pinia/store/catalog/state/catalogStore';
 import { orderType } from '@/interfaces/orderInterface';
@@ -32,6 +32,12 @@ onMounted(async () => {
     item.quantity = 1;
   });
   localStorage.setItem('data', JSON.stringify(catalogStore.dataArray));
+});
+
+watch(() => catalogStore.dataArray, (value) => {
+  if (value) {
+    catalogStore.sortedArray.push(...catalogStore.dataArray);
+  }
 });
 
 </script>
